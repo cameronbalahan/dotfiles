@@ -1,0 +1,154 @@
+"
+" Cameron's simple vim configuration
+"
+" created:  June 29, 2017
+" updated:  January 8, 2023
+"
+"
+
+set nocompatible
+filetype off
+
+" *****************************************************************************
+" vim config
+"
+" *****************************************************************************
+
+" ui
+"
+syntax on
+set ttimeoutlen=50
+set t_Co=256
+set background=dark
+colorscheme desert
+
+set cursorline
+set more
+set number
+set ruler
+set scrolloff=3
+set showcmd
+set title
+set novisualbell
+set noerrorbells
+set t_vb=
+
+set path+=**
+set wildmenu
+set wildmode=longest,list
+" don't offer to open certain files/directories
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=build/*,dist/*,node_modules/*,bower_components/*
+
+" general
+"
+set splitbelow
+set splitright
+
+set mouse=a
+set mousehide
+
+set clipboard=unnamedplus
+set encoding=utf-8
+set hidden
+set history=512
+set laststatus=2
+set noshowmode
+set shortmess+=I
+set switchbuf=useopen
+
+set listchars=tab:>\
+set list
+set nowrap
+set ignorecase
+set smartcase
+
+" search and replace
+"
+set hlsearch
+set incsearch
+
+" matching
+"
+set matchtime=2
+set showmatch
+
+" tabbing and indentation
+"
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+
+set autoindent
+set backspace=indent,eol,start
+set cindent
+set cinkeys-=0#
+set cinoptions=:s,ps,ts,cs,g0
+set cinwords=if,else,while,do,for,switch,case
+
+" file
+"
+set autoread
+set confirm
+set noautowrite
+set nobackup
+"set backup
+"set backupdir=$HOME/.vim/backup//
+"set backupext=~
+set swapfile
+set directory=/tmp//
+
+" general keymappings
+"
+let mapleader="\<Space>"
+let g:mapleader="\<Space>"
+
+" paste mode
+"
+nnoremap <F2>           :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+" beginning/end of line, pageup/pagedown
+"
+noremap H               ^
+noremap L               $
+nnoremap J              <PageDown>
+nnoremap K              <PageUp>
+
+" clear highlighting on search
+nnoremap <Leader><Esc>  :nohlsearch<CR>
+
+" buffers
+"
+noremap <C-H>           :bprevious<CR>
+noremap <C-L>           :bnext<CR>
+noremap <C-W>           :bp <BAR> bd #<CR> 
+noremap <Leader><Tab>   <C-^> 
+noremap <Leader>t       :enew<CR>
+
+" save and quit 
+"
+nnoremap <Leader>q      :qa<CR>
+nnoremap <Leader>w      :w<CR>
+
+" templates
+"
+"augroup templates
+"  autocmd BufNewFile *.c 0r ~/.vim/templates/new_file.c
+"  autocmd BufNewFile *.cpp 0r ~/.vim/templates/new_file.cpp
+"  autocmd BufNewFile *.h 0r ~/.vim/templates/new_file.h
+"augroup END
+
+
+" *****************************************************************************
+" optional external overrides
+"
+" *****************************************************************************
+if filereadable(expand("~/.vimrc_corp"))
+  source ~/.vimrc_corp
+endif
+

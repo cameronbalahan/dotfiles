@@ -1,0 +1,43 @@
+[user]
+	name = Cameron Balahan
+	email = thecameron@gmail.com
+	signingkey = 534F297AAFB6D898
+[apply]
+	whitespace = fix
+[branch]
+	autosetupmerge = always
+	autosetuprebase = always
+[color]
+	ui = true
+[commit]
+	gpgsign = true
+[core]
+	editor = vim
+	excludesfile = .gitignore_global
+[credential]
+	helper = cache
+[diff]
+	colorMoved = default
+	renames = copies
+	submodule = log
+[fetch]
+	prune = true
+[help]
+	autocorrect = 1
+[init]
+	defaultBranch = main
+[merge]
+	prompt = true
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
+[pull]
+	rebase = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[status]
+	showUntrackedFiles = all
+[include]
+	path = .gitconfig_corp

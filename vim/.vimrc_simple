@@ -126,11 +126,11 @@ nnoremap <Leader><Esc>  :nohlsearch<CR>
 "
 noremap <C-H>           :bprevious<CR>
 noremap <C-L>           :bnext<CR>
-noremap <C-W>           :bp <BAR> bd #<CR> 
-noremap <Leader><Tab>   <C-^> 
+noremap <C-W>           :bp <BAR> bd #<CR>
+noremap <Leader><Tab>   <C-^>
 noremap <Leader>t       :enew<CR>
 
-" save and quit 
+" save and quit
 "
 nnoremap <Leader>q      :qa<CR>
 nnoremap <Leader>w      :w<CR>
@@ -143,12 +143,17 @@ nnoremap <Leader>w      :w<CR>
 "  autocmd BufNewFile *.h 0r ~/.vim/templates/new_file.h
 "augroup END
 
-
 " *****************************************************************************
 " optional external overrides
 "
 " *****************************************************************************
+" plugins
+"
+if filereadable(expand("~/.vimrc_plugins"))
+  source ~/.vimrc_plugins
+endif
+" google corp override
+"
 if filereadable(expand("~/.vimrc_corp"))
   source ~/.vimrc_corp
 endif
-

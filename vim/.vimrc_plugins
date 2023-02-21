@@ -3,6 +3,7 @@
 "
 " *****************************************************************************
 " gopls via vim-go
+" git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 "
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'

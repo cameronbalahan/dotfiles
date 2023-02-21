@@ -1,0 +1,59 @@
+#!/bin/zsh
+# zsh uses its own ZLE (Zsh Line Editor) instead of readline (~/.inputrc).
+#
+# There's no need to introduce a ~/.zprofile as ~/.zshrc is always executed for
+# interactive shells, unlike bash.
+
+# Automatically list choices on an ambiguous completion.
+setopt auto_list
+
+# When this option is set and the default zsh-style globbing is in effect,
+# the pattern ‘**/*’ can be abbreviated to ‘**’ and the pattern ‘***/*’
+# can be abbreviated to ***. Hence ‘**.c’ finds a file ending in .c in
+# any subdirectory, and ‘***.c’ does the same while also following symbolic
+# links. A / immediately after the ‘**’ or ‘***’ forces the pattern to be
+# treated as the unabbreviated form.
+setopt glob_star_short
+
+# Skip duplicates when looking up history entries.
+setopt hist_find_no_dups
+
+# History: Ignore entries that start with space and ignore duplicates.
+setopt hist_ignore_space hist_ignore_all_dups
+
+# Append to the history file immediately.
+setopt inc_append_history
+
+# Disable failure to match a globbing pattern causing an error.
+# So that 'git status 'HEAD^' works (caret).
+setopt no_nomatch
+
+# Increase maximum number of entries in memory and in the history file, respectively.
+HISTSIZE=50000
+SAVEHIST=50000
+
+# History: Use standard ISO 8601 timestamp.
+#   %F is equivalent to %Y-%m-%d
+#   %T is equivalent to %H:%M:%S (24-hours format)
+HISTTIMEFORMAT='[%F %T] '
+
+# Use `C-x C-e` to edit current command in $EDITOR with multi-line support.
+# Saving and quitting $EDITOR returns to command prompt with the edited command
+# inserted, but does not execute it until ENTER is pressed.
+# https://unix.stackexchange.com/q/6620
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
+# Compatibility with bash completion.
+autoload -Uz bashcompinit && bashcompinit
+
+# Source base shell functions.
+[ -r ~/.profilerc ] && . ~/.profilerc
+
+# Load user scripts and functions if existing. Order is important.
+# Corp config is handled as part of .zshrc.d.
+src_files "$HOME/.profile.d" "$HOME/.zshrc.d"
+
+## iTerm 2 shell integration: https://iterm2.com/documentation-shell-integration.html
+#src_files "$HOME/.iterm2_shell_integration.zsh"

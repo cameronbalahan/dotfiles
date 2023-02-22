@@ -266,3 +266,6 @@ set -g mouse on
 # fix Mac OS pasting
 #set -g default-shell $SHELL
 #set -g default-command "reattach-to-user-namespace -l ${SHELL}"
+
+# Load corp configs if any.
+if "[ -f ~/.tmux.conf_corp ]" 'source ~/.tmux.conf_corp'

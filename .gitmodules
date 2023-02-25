@@ -1,3 +1,12 @@
 [submodule "vendor/.tmux"]
 	path = vendor/.tmux
 	url = https://github.com/gpakosz/.tmux
+[submodule "vendor/grml-etc-core"]
+	path = vendor/grml-etc-core
+	url = https://github.com/grml/grml-etc-core.git
+[submodule "vendor/zsh-autosuggestions"]
+	path = vendor/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "vendor/zsh-syntax-highlighting"]
+	path = vendor/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

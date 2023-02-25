@@ -1,8 +1,17 @@
 #!/bin/zsh
+# Extends grml-zsh-config(5).
+#
 # zsh uses its own ZLE (Zsh Line Editor) instead of readline (~/.inputrc).
 #
 # There's no need to introduce a ~/.zprofile as ~/.zshrc is always executed for
 # interactive shells, unlike bash.
+#
+# Prompt theme:
+#   prompt -l to list all themes.
+#   prompt -p to preview all themes.
+#
+# Useful tips:
+#   ESC h to call man for the current command line.
 
 # Automatically list choices on an ambiguous completion.
 setopt auto_list
@@ -48,6 +57,11 @@ bindkey '^x^e' edit-command-line
 # Compatibility with bash completion.
 autoload -Uz bashcompinit && bashcompinit
 
+# Disable undesired grml-zsh-config features.
+# https://grml.org/zsh/grmlzshrc.html
+MAILCHECK=0
+set noshare_history
+
 # Source base shell functions.
 [ -r ~/.profilerc ] && . ~/.profilerc
 
@@ -55,5 +69,5 @@ autoload -Uz bashcompinit && bashcompinit
 # Corp config is handled as part of .zshrc.d.
 src_files "$HOME/.profile.d" "$HOME/.zshrc.d"
 
-## iTerm 2 shell integration: https://iterm2.com/documentation-shell-integration.html
+# iTerm 2 shell integration: https://iterm2.com/documentation-shell-integration.html
 #src_files "$HOME/.iterm2_shell_integration.zsh"

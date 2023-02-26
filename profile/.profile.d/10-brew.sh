@@ -7,4 +7,4 @@
 #
 # The following line is idempotent.
 [ -z "$HOMEBREW_PREFIX" ] && [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
+[ -z "$HOMEBREW_PREFIX" ] && [ -x /usr/local/homebrew/bin/brew ] && eval "$(/usr/local/homebrew/bin/brew shellenv)"
